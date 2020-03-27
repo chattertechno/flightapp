@@ -16,21 +16,24 @@ ThemeData appTheme =
 
 List<String> locations = ['Boston (BOS)', 'Dar Es Salaam(DSM)'];
 
-const TextStyle dropDownLabelStyle =
-    TextStyle(color: Colors.white, fontSize: 16.0);
-const TextStyle dropDownMenuItemStyle =
-    TextStyle(color: Colors.black, fontSize: 16.0);
-
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: <Widget>[HomeScreenTopart()],
+        children: <Widget>[HomeScreenTopart(),
+        ],
       ),
     );
   }
 }
+
+const TextStyle dropDownLabelStyle =
+    TextStyle(color: Colors.white, fontSize: 16.0);
+const TextStyle dropDownMenuItemStyle =
+    TextStyle(color: Colors.black, fontSize: 16.0);
+
+
 
 class HomeScreenTopart extends StatefulWidget {
   @override

@@ -21,7 +21,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: <Widget>[HomeScreenTopart(),
+        children: <Widget>[
+          HomeScreenTopart(),
+          homeScreenBottomPart,
         ],
       ),
     );
@@ -32,8 +34,6 @@ const TextStyle dropDownLabelStyle =
     TextStyle(color: Colors.white, fontSize: 16.0);
 const TextStyle dropDownMenuItemStyle =
     TextStyle(color: Colors.black, fontSize: 16.0);
-
-
 
 class HomeScreenTopart extends StatefulWidget {
   @override
@@ -171,22 +171,30 @@ class _HomeScreenTopartState extends State<HomeScreenTopart> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     InkWell(
-                        child: ChoiceChip(
-                          icon: Icons.flight_takeoff, text: "Flights", isSelected: isFlightSelected),
-                        onTap: () {
-                          setState(() {
-                            isFlightSelected = true;
-                          });
-                        },
+                      child: ChoiceChip(
+                          icon: Icons.flight_takeoff,
+                          text: "Flights",
+                          isSelected: isFlightSelected),
+                      onTap: () {
+                        setState(() {
+                          isFlightSelected = true;
+                        });
+                      },
                     ),
                     SizedBox(
                       width: 50.0,
                     ),
-                    InkWell (child: ChoiceChip(icon: Icons.hotel, text: "Hotel", isSelected: !isFlightSelected), onTap: () {
-                      setState(() {
-                        isFlightSelected = false;
-                      });
-                    },),
+                    InkWell(
+                      child: ChoiceChip(
+                          icon: Icons.hotel,
+                          text: "Hotel",
+                          isSelected: !isFlightSelected),
+                      onTap: () {
+                        setState(() {
+                          isFlightSelected = false;
+                        });
+                      },
+                    ),
                   ],
                 ),
               ],
@@ -240,3 +248,20 @@ class _ChoiceChipState extends State<ChoiceChip> {
     );
   }
 }
+
+var viewAllStyle = TextStyle(fontSize: 14.0, color: appTheme.primaryColor);
+
+var homeScreenBottomPart = Column(
+  children: <Widget>[
+    Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        SizedBox(width: 16.0,),
+        Text("Currently watched items", style: dropDownMenuItemStyle,),
+        Spacer(),
+        Text("View all (12)", style: viewAllStyle,),
+      ],
+    )
+  ],
+);
